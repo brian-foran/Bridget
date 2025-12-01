@@ -3,28 +3,49 @@
 <head>
     <title>Time Worked Calculator</title>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <!-- <script src="/js/Bmath.js"></script> -->
 <body>
 
-<p> You worked this many hours:</p>
-<p id="hours"></p>
+<div class="app">
+    <header class="header">
+        <div class="logo">B</div>
+        <div>
+            <h1 class="title">Time Worked Calculator</h1>
+            <p class="subtitle">Quickly convert total minutes into hours + minutes — pretty and responsive.</p>
+        </div>
+    </header>
 
-<p> </p>
-<p> And this many minutes:</p>
-<p id="mins"></p>
+    <main class="grid">
+        <section class="card">
+            <div class="form-row">
+                <label for="minutes">Total minutes worked</label>
+                <input id="minutes" type="number" min="0" placeholder="e.g. 145" />
+            </div>
 
-<script>
-const mins = prompt("How Many Minutes Worked:");
+            <div class="actions">
+                <button id="calculate" class="btn btn-primary">Calculate</button>
+                <button id="clear" class="btn btn-ghost">Clear</button>
+            </div>
 
-let hours = Math.floor(mins/60);
-let remainder = mins - hours*60;
+            <p class="footer">Tip: type a number and press Calculate — your results appear on the right.</p>
+        </section>
 
-document.getElementById("hours").innerHTML = hours;
-document.getElementById("mins").innerHTML = remainder;
+        <aside class="card result" aria-live="polite">
+            <div class="small">You worked</div>
+            <div class="big shimmer" id="hours">—</div>
+            <div class="small" id="mins">— minutes</div>
+        </aside>
+    </main>
 
-</script>
+</div>
+
+<script src="js/ui.js" defer></script>
 
 </body>
 </html>
